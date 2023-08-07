@@ -1,5 +1,9 @@
+let displayValue;
+
 function appendToDisplay(value) {
   document.getElementById("display").value += value;
+  displayValue = document.getElementById("display").value;
+  console.log("The display value is " + displayValue);
 }
 
 function clearDisplay() {
