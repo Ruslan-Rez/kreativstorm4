@@ -9,7 +9,7 @@
   </head>
   <body>
     <div id="calculator">
-      <input type="text" id="display" onchange="change_send(this.value);" />
+      <input type="text" id="display" oninput="change_send(this.value);" />
       <button class="clear" onclick="clearDisplay()">C</button>
       <button class="backspace">←</button>
       <br />
