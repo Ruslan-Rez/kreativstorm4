@@ -5,19 +5,19 @@ const equal = document.querySelector(".equals");
 const clear = document.querySelector(".clear");
 let displayValue;
 
-const number1 = "";
-const number2 = "";
-const operator ="";
+let number1  = " ";
+let number2 = " ";
+let operator =" ";
 
 // listen for numbers
 numbers.forEach(number => {
   number.addEventListener("click", e => {
       if (operator === " ") { 
         // Read first number if no operator set yet
-          number1 = e.target.value;
+        number1 = parseInt(e.target.value);
       } else { 
         // Read second number
-          number2 = e.target.value;
+          number2 = parseInt(e.target.value);
       }
   });
 });
@@ -28,8 +28,8 @@ operators.forEach(operatorInput => {
     // If the operator is not equals
       if (e.target.value !== "=") { 
           operator = e.target.value;
-          console.log(number1); 
-          console.log(operator); 
+          console.log("number1 from op:" +number1); 
+          console.log("operator" + operator); 
       } else { 
           console.log(number2); 
           // If equals button clicked
