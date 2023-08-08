@@ -9,7 +9,7 @@
   </head>
   <body>
     <div id="calculator">
-      <input type="text" id="display" disabled />
+      <input type="text" id="display" onchange="change_send(this.value);" />
       <br />
       <button class="number" onclick="appendToDisplay('7')" value="7">7</button>
       <button class="number" onclick="appendToDisplay('8')" value="8">8</button>
