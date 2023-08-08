@@ -11,6 +11,10 @@
     <div id="calculator">
       <input type="text" id="display" onchange="change_send(this.value);" />
       <br />
+      <button class="clear" onclick="clearDisplay()">C</button>
+      <button class="backspace">←</button>
+
+      <br />
       <button class="number" onclick="appendToDisplay('7')">7</button>
       <button class="number" onclick="appendToDisplay('8')">8</button>
       <button class="number" onclick="appendToDisplay('9')">9</button>
@@ -27,9 +31,10 @@
       <button class="operand" onclick="appendToDisplay('*')">*</button>
       <br />
       <button class="number" onclick="appendToDisplay('0')">0</button>
-      <button class="clear" onclick="clearDisplay()">C</button>
+      <button class="decimal" onclick="appendToDisplay('.')">.</button>
       <button class="equals" onclick="calculate()">=</button>
       <button class="operand" onclick="appendToDisplay('/')">/</button>
+
     </div>
   </body>
 </html>
