@@ -1,47 +1,42 @@
-const input = document.querySelector("#display");
+const display = document.querySelector("#display");
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operand");
-const equal = document.querySelector(".equals");
 const clear = document.querySelector(".clear");
+
 let displayValue = null;
 let number1 = null;
 let number2 = null;
 let operator = null;
 
-// listen for all numbers being input
-numbers.forEach((number) => {
-  number.addEventListener("click", (e) => {
-    if (operator === null) {
-      // Read first number if no operator set yet
-      number1 += e.target.innerText;
-    } else {
-      // Read second number
-      number2 += parseFloat(e.target.innerText);
-    }
-  });
-});
-
 // listen for operators being applied
 operators.forEach((operatorInput) => {
   operatorInput.addEventListener("click", (e) => {
+
     // If the operator is not equals
     if (e.target.value !== "=") {
-      let n1 = parseInt(displayValue.length - 1);
-      number1 = parseFloat(displayValue.slice(0, n1));
+      number1 = parseFloat(displayValue)
       console.log("Number1 is:" + number1);
+      
+      // operator is operator pressed
       operator = e.target.value;
-      console.log("Operator value is:" + operator);
-    } else if (e.target.value === "=") {
+      console.log("OPerator value is:" + operator);
+
+      // clear display
+      display.value = "";
+      displayValue = display.value
+    } else {
+      displayValue = display.value
+      number2 = parseFloat(displayValue)
       console.log("num2:" + number2);  
     }
   });
 });
 
-function calculate(){
-  answer = operate(number1,number2, operator);
-  document.getElementById("display").value = answer;
-  displayValue = document.getElementById("display").answer
-}
+document.getElementById("equal").addEventListener('click',()=>{
+  let solution = operate(number1,number2, operator);
+  console.log("Current display value" + solution);
+  display.value = solution;
+})
 
 function change_send(value) {
   //keyboard
@@ -61,6 +56,9 @@ function appendToDisplay(value) {
 function clearDisplay() {
   document.getElementById("display").value = "";
   displayValue = null;
+  number1 = null;
+  number2 = null;
+  operator = null;
 }
 
 function backSpace() {
