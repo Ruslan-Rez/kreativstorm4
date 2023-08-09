@@ -26,16 +26,43 @@ button {
   height: 70px;
   font-size: 20px;
   margin: 5px;
+  transition-property: background-color;
+  transition: 0.3s;
 }
 .number{
   background-color: #93E1D8;
 }
+.decimal{
+  background-color: #93E1D8;
+}
+.number:active{
+  background-color: #04e3c9;
+}
+.decimal:active{
+  background-color: #04e3c9;
+}
 .operand{
   background-color: #FFA69E;
+}
+.operand:focus{
+  background-color: #fc6457;
 }
 .equals{
   background-color: #FF77A4;
 }
 .clear{
   background-color: #FF77A4;
+}
+.backspace{
+  background-color: #FF77A4;
+  width: 240px;
+}
+.equals:active{
+  background-color: #fa0e5c;
+}
+.clear:active{
+  background-color: #fa0e5c;
+}
+.backspace:active{
+  background-color: #fa0e5c;
 }
