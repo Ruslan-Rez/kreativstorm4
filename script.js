@@ -1,4 +1,4 @@
-let displayValue;
+let displayValue=null;
 function change_send(value) {
   //keyboard
   document.getElementById("display").value = value;
@@ -18,9 +18,11 @@ function clearDisplay() {
   displayValue=null;
 }
 function backSpace() {
+  if(displayValue){
   displayValue = displayValue.substring(0, displayValue.length - 1);
   document.getElementById("display").value = displayValue;
   console.log("Current display value" + displayValue);
+  }
 }
 
 function add(number1, number2) {
