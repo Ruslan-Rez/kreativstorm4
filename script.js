@@ -38,8 +38,9 @@ operators.forEach((operatorInput) => {
 });
 
 function calculate(){
-  displayValue = operate(number1,number2, operator);
-  console.log("Current display value" + displayValue);
+  answer = operate(number1,number2, operator);
+  document.getElementById("display").value = answer;
+  displayValue = document.getElementById("display").answer
 }
 
 function change_send(value) {
