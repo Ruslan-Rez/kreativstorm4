@@ -15,6 +15,7 @@ function appendToDisplay(value) {
 
 function clearDisplay() {
   document.getElementById("display").value = "";
+  displayValue=null;
 }
 function backSpace() {
   displayValue = displayValue.substring(0, displayValue.length - 1);
