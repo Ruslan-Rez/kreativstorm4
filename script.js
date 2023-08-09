@@ -41,7 +41,7 @@ operators.forEach((operatorInput) => {
 });
 
 function calculate(){
-  displayValue = operate(number1,number2, operator);
+  displayValue += operate(number1,number2, operator);
   console.log("Current display value" + displayValue);
 }
 
