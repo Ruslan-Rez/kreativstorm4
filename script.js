@@ -26,14 +26,11 @@ operators.forEach((operatorInput) => {
   operatorInput.addEventListener("click", (e) => {
     // If the operator is not equals
     if (e.target.value !== "=") {
-      // number1 is the display value splice -2 1 Parsed to account for decimal places
       let n1 = parseInt(displayValue.length - 1);
-      console.log("n1=" + n1);
       number1 = parseFloat(displayValue.slice(0, n1));
       console.log("Number1 is:" + number1);
-      // operator is operator pressed
       operator = e.target.value;
-      console.log("OPerator value is:" + operator);
+      console.log("Operator value is:" + operator);
     } else if (e.target.value === "=") {
       console.log("num2:" + number2);  
     }
@@ -41,7 +38,7 @@ operators.forEach((operatorInput) => {
 });
 
 function calculate(){
-  displayValue += operate(number1,number2, operator);
+  displayValue = operate(number1,number2, operator);
   console.log("Current display value" + displayValue);
 }
 
