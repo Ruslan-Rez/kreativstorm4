@@ -5,38 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css" type="text/css" />
-    <script type="text/javascript" src="script.js"></script>
+    
   </head>
   <body>
     <div id="calculator">
-      <input
-        type="text"
-        id="display"
-        onkeypress="return event.charCode >= 48 && event.charCode <= 57 ||event.charCode == 42 ||event.charCode == 43||event.charCode == 45 || event.charCode == 47"
-        oninput="change_send(this.value);" />
+      <input 
+      type="text" 
+      id="display"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57 ||event.charCode == 42 ||event.charCode == 43||event.charCode == 45 || event.charCode == 47"
+      oninput="change_send(this.value);" />
 
-      <button class="clear" onclick="clearDisplay()">C</button>
+      <button class="clear" value="null" onclick="clearDisplay()">C</button>
       <button class="backspace" onclick="backSpace();">←</button>
       <br />
-      <button class="number" onclick="appendToDisplay('7')">7</button>
-      <button class="number" onclick="appendToDisplay('8')">8</button>
-      <button class="number" onclick="appendToDisplay('9')">9</button>
-      <button class="operand" onclick="appendToDisplay('+')">+</button>
+      <button class="number" value="7" onclick="appendToDisplay('7')">7</button>
+      <button class="number" value="8" onclick="appendToDisplay('8')">8</button>
+      <button class="number" value="9" onclick="appendToDisplay('9')">9</button>
+      <button class="operand" value="+" onclick="appendToDisplay('+')">+</button>
       <br />
-      <button class="number" onclick="appendToDisplay('4')">4</button>
-      <button class="number" onclick="appendToDisplay('5')">5</button>
-      <button class="number" onclick="appendToDisplay('6')">6</button>
-      <button class="operand" onclick="appendToDisplay('-')">-</button>
+      <button class="number" value="4" onclick="appendToDisplay('4')">4</button>
+      <button class="number" value="5" onclick="appendToDisplay('5')">5</button>
+      <button class="number" value="6" onclick="appendToDisplay('6')">6</button>
+      <button class="operand" value="-" onclick="appendToDisplay('-')">-</button>
       <br />
-      <button class="number" onclick="appendToDisplay('1')">1</button>
-      <button class="number" onclick="appendToDisplay('2')">2</button>
-      <button class="number" onclick="appendToDisplay('3')">3</button>
-      <button class="operand" onclick="appendToDisplay('*')">*</button>
+      <button class="number" value="1" onclick="appendToDisplay('1')">1</button>
+      <button class="number" value="2" onclick="appendToDisplay('2')">2</button>
+      <button class="number" value="3" onclick="appendToDisplay('3')">3</button>
+      <button class="operand" value="*" onclick="appendToDisplay('*')">*</button>
       <br />
-      <button class="number" onclick="appendToDisplay('0')">0</button>
-      <button class="decimal" onclick="appendToDisplay('.')">.</button>
-      <button class="equals" onclick="calculate()">=</button>
-      <button class="operand" onclick="appendToDisplay('/')">/</button>
+      <button class="number" value="0" onclick="appendToDisplay('0')">0</button>
+      <button class="decimal" value="." onclick="appendToDisplay('.')">.</button>
+      <button class="operand" value="=" onclick="calculate()">=</button>
+      <button class="operand" value="/" onclick="appendToDisplay('/')">/</button>
     </div>
   </body>
+  <script type="text/javascript" src="myScript.js"></script>
 </html>
