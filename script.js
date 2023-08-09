@@ -32,11 +32,12 @@ operators.forEach((operatorInput) => {
   });
 });
 
-document.getElementById("equal").addEventListener('click',()=>{
+document.getElementById("equal").addEventListener('click', calculate)
+function calculate(){
   let solution = operate(number1,number2, operator);
   console.log("Current display value" + solution);
   display.value = solution;
-})
+}
 
 function change_send(value) {
   //keyboard
