@@ -16,25 +16,24 @@ numbers.forEach((numberInput) => {
   });
 });
 
-// listen for operators being applied
 operators.forEach((operatorInput) => {
   operatorInput.addEventListener("click", (e) => {
-    // If the operator is not equals
     if (e.target.value !== "=") {
-      number1 = parseFloat(displayValue);
-      console.log("Number1 is:" + number1);
-
-      // operator is operator pressed
+      if (number1 === null) {
+        number1 = parseFloat(displayValue);
+      } else if (operator !== null && displayValue !== "") {
+        number2 = parseFloat(displayValue);
+        number1 = operate(number1, number2, operator);
+        display.value = number1;
+        number2 = null;
+      }
       operator = e.target.value;
-      console.log("OPerator value is:" + operator);
-
-      // clear display
+      displayValue = "";
+      hasCalculated = false;
+      enableDecimalButton(); // Re-enable the decimal button
+      // Clear the display when an operator is clicked
       display.value = "";
-      displayValue = display.value;
-    } else {
-      displayValue = display.value;
-      number2 = parseFloat(displayValue);
-      console.log("num2:" + number2);
+      displayValue = "";
     }
   });
 });
@@ -126,6 +125,9 @@ function operate(number1, number2, operator) {
     case "/":
       if (number2 === 0) {
         return "Why ...";
-      } else return divide(number1, number2);
+      }
+      return divide(number1, number2);
+    default:
+      return number1; // Default case for unsupported operators
   }
 }
