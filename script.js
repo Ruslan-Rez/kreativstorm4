@@ -63,11 +63,20 @@ function change_send(value) {
 
 function appendToDisplay(value) {
   //mouse
+  // Check if the value is a decimal and if there's already a decimal in the display
+  if (value === "." && displayValue.includes(".")) {
+    return; // Don't allow multiple decimals
+  }
   display.value += value;
   displayValue = display.value;
-  // document.getElementById("display").value += value;
-  // displayValue = document.getElementById("display").value;
+  // Disable the decimal button if there's already a decimal in the display
+  if (value === ".") {
+    document.querySelector(".decimal").disabled = true;
+  }
   console.log("Current display value: " + displayValue);
+}
+function enableDecimalButton() {
+  document.querySelector(".decimal").disabled = false;
 }
 
 // clear.addEventListener("click", clearDisplay)
