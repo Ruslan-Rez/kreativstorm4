@@ -1,11 +1,16 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #1a1919;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .calculator {
   width: fit-content;
-  margin: auto;
+  margin-top: 50px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
