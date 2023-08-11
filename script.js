@@ -52,11 +52,9 @@ function calculate() {
 }
 
 function change_send(value) {
-  //keyboard
+  //keyboard/mouse
   display.value = value;
   displayValue = value;
-  // document.getElementById("display").value = value;
-  // displayValue = document.getElementById("display").value;
   console.log("Current display value: " + displayValue);
 }
 
