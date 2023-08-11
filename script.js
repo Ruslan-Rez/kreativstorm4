@@ -2,60 +2,87 @@ const display = document.querySelector("#display");
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operand");
 const clear = document.querySelector(".clear");
+const equal = document.querySelector("#equal");
 
-let displayValue = null;
+let displayValue = "";
 let number1 = null;
 let number2 = null;
 let operator = null;
+let hasCalculated = false;
 
-// listen for operators being applied
+numbers.forEach((numberInput) => {
+  numberInput.addEventListener("click", (e) => {
+    appendToDisplay(e.target.value);
+  });
+});
+
 operators.forEach((operatorInput) => {
   operatorInput.addEventListener("click", (e) => {
-
-    // If the operator is not equals
     if (e.target.value !== "=") {
-      number1 = parseFloat(displayValue)
-      console.log("Number1 is:" + number1);
-      
-      // operator is operator pressed
+      if (number1 === null) {
+        number1 = parseFloat(displayValue);
+      } else if (operator !== null && displayValue !== "") {
+        number2 = parseFloat(displayValue);
+        number1 = operate(number1, number2, operator);
+        display.value = number1;
+        number2 = null;
+      }
       operator = e.target.value;
-      console.log("OPerator value is:" + operator);
-
-      // clear display
+      displayValue = "";
+      hasCalculated = false;
+      enableDecimalButton(); // Re-enable the decimal button
+      // Clear the display when an operator is clicked
       display.value = "";
-      displayValue = display.value
-    } else {
-      displayValue = display.value
-      number2 = parseFloat(displayValue)
-      console.log("num2:" + number2);  
+      displayValue = "";
     }
   });
 });
 
-document.getElementById("equal").addEventListener('click',()=>{
-  let solution = operate(number1,number2, operator);
-  console.log("Current display value" + solution);
-  display.value = solution;
-})
+// Listen for equal button click
+function calculate() {
+  if (number1 !== null && operator !== null) {
+    number2 = parseFloat(displayValue);
+    const result = operate(number1, number2, operator);
+    display.value = result;
+    number1 = result;
+    number2 = null;
+    operator = null;
+    displayValue = "";
+  }
+}
 
 function change_send(value) {
-  //keyboard
-  document.getElementById("display").value = value;
-  displayValue = document.getElementById("display").value;
-  console.log("Current display value" + displayValue);
+  //keyboard/mouse
+  display.value = value;
+  displayValue = value;
+  console.log("Current display value: " + displayValue);
 }
 
 function appendToDisplay(value) {
   //mouse
-  document.getElementById("display").value += value;
-  displayValue = document.getElementById("display").value;
-  console.log("Current display value" + displayValue);
+  // Check if the value is a decimal and if there's already a decimal in the display
+  if (value === "." && displayValue.includes(".")) {
+    return; // Don't allow multiple decimals
+  }
+  display.value += value;
+  displayValue = display.value;
+  // Disable the decimal button if there's already a decimal in the display
+  if (value === ".") {
+    document.querySelector(".decimal").disabled = true;
+  }
+  console.log("Current display value: " + displayValue);
+}
+
+function enableDecimalButton() {
+  document.querySelector(".decimal").disabled = false;
 }
 
 // clear.addEventListener("click", clearDisplay)
 function clearDisplay() {
-  document.getElementById("display").value = "";
-  displayValue = null;
+  // document.getElementById("display").value = "";
+  display.value = "";
+  displayValue = "";
+  // displayValue = null;
   number1 = null;
   number2 = null;
   operator = null;
@@ -65,7 +92,7 @@ function backSpace() {
   if (displayValue) {
     displayValue = displayValue.substring(0, displayValue.length - 1);
     document.getElementById("display").value = displayValue;
-    console.log("Current display value" + displayValue);
+    console.log("Current display value: " + displayValue);
   }
 }
 
@@ -88,15 +115,18 @@ function divide(number1, number2) {
 
 function operate(number1, number2, operator) {
   switch (operator) {
-    case '+':
+    case "+":
       return add(number1, number2);
-    case '-':
+    case "-":
       return subtract(number1, number2);
-    case '*':
+    case "*":
       return multiply(number1, number2);
-    case '/':
+    case "/":
       if (number2 === 0) {
-        return "Why...";
-      } else return divide(number1, number2);
+        return "Why ...";
+      }
+      return divide(number1, number2);
+    default:
+      return number1; // Default case for unsupported operators
   }
 }

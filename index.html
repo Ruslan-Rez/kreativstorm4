@@ -12,34 +12,34 @@
       <input 
       type="text" 
       id="display"
-      onkeypress="return event.charCode >= 48 && event.charCode <= 57 ||event.charCode == 42 ||event.charCode == 43||event.charCode == 45 || event.charCode == 47"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
       oninput="change_send(this.value);" />
 
       <div class="keys">
-      <button class="clear" value="null" onclick="clearDisplay()">C</button>
-      <button class="backspace" onclick="backSpace();">←</button>
+      <button class="clear" value="null" onclick="clearDisplay(); enableDecimalButton()">C</button>
+      <button class="backspace" onclick="backSpace()">←</button>
       <br />
-      <button class="number" value="7" onclick="appendToDisplay('7')">7</button>
-      <button class="number" value="8" onclick="appendToDisplay('8')">8</button>
-      <button class="number" value="9" onclick="appendToDisplay('9')">9</button>
+      <button class="number" value="7" >7</button>
+      <button class="number" value="8" >8</button>
+      <button class="number" value="9" >9</button>
       <button class="operand" value="+">+</button>
       <br />
-      <button class="number" value="4" onclick="appendToDisplay('4')">4</button>
-      <button class="number" value="5" onclick="appendToDisplay('5')">5</button>
-      <button class="number" value="6" onclick="appendToDisplay('6')">6</button>
+      <button class="number" value="4" >4</button>
+      <button class="number" value="5" >5</button>
+      <button class="number" value="6" >6</button>
       <button class="operand" value="-">-</button>
       <br />
-      <button class="number" value="1" onclick="appendToDisplay('1')">1</button>
-      <button class="number" value="2" onclick="appendToDisplay('2')">2</button>
-      <button class="number" value="3" onclick="appendToDisplay('3')">3</button>
+      <button class="number" value="1" >1</button>
+      <button class="number" value="2" >2</button>
+      <button class="number" value="3" >3</button>
       <button class="operand" value="*">*</button>
       <br />
-      <button class="number" value="0" onclick="appendToDisplay('0')">0</button>
-      <button class="decimal" value="." onclick="appendToDisplay('.')">.</button>
+      <button class="number" value="0" >0</button>
+      <button class="decimal" value="." onclick="appendToDisplay('.'); this.disabled = true;">.</button>
       <button id="equal" class="operand" value="=" onclick="calculate()">=</button>
       <button class="operand" value="/" >/</button>
     </div>
     </div>
   </body>
-  <script type="text/javascript" src="myScript.js"></script>
+  <script type="text/javascript" src="script.js"></script>
 </html>
