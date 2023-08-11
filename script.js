@@ -72,6 +72,7 @@ function appendToDisplay(value) {
   }
   console.log("Current display value: " + displayValue);
 }
+
 function enableDecimalButton() {
   document.querySelector(".decimal").disabled = false;
 }
