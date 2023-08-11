@@ -43,8 +43,8 @@ function calculate() {
   if (number1 !== null && operator !== null) {
     number2 = parseFloat(displayValue);
     const result = operate(number1, number2, operator);
-    display.value = result;
-    number1 = result;
+    display.value = parseFloat(result.toFixed(5));
+    number1 = parseFloat(result.toFixed(5));
     number2 = null;
     operator = null;
     displayValue = "";
@@ -79,13 +79,12 @@ function enableDecimalButton() {
 
 // clear.addEventListener("click", clearDisplay)
 function clearDisplay() {
-  // document.getElementById("display").value = "";
   display.value = "";
   displayValue = "";
-  // displayValue = null;
   number1 = null;
   number2 = null;
   operator = null;
+  console.clear();
 }
 
 function backSpace() {
@@ -123,7 +122,7 @@ function operate(number1, number2, operator) {
       return multiply(number1, number2);
     case "/":
       if (number2 === 0) {
-        return "Why ...";
+        return "Why... :(";
       }
       return divide(number1, number2);
     default:
