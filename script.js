@@ -166,7 +166,7 @@ function operate(number1, number2, operator) {
     case "/":
       if (number2 === 0) {
         clearDisplay();
-        return "Why....:(";
+        return "Error! ";
       }
       return divide(number1, number2);
     default:
