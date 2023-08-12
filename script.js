@@ -151,7 +151,7 @@ function operate(number1, number2, operator) {
     case "/":
       if (number2 === 0) {
         clearDisplay();
-        return "Error!  Division by  0  not possible!";
+        return "Why....:(";
       }
       return divide(number1, number2);
     default:
