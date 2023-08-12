@@ -37,13 +37,13 @@ button {
 .number {
   background-color: #93e1d8;
 }
-.decimal {
+#decimal {
   background-color: #93e1d8;
 }
 .number:active {
   background-color: #04e3c9;
 }
-.decimal:active {
+#decimal:active {
   background-color: #04e3c9;
 }
 .operand {
@@ -52,22 +52,22 @@ button {
 .operand:focus {
   background-color: #fc6457;
 }
-.equals {
+#equals {
   background-color: #ff77a4;
 }
-.clear {
+#clear {
   background-color: #ff77a4;
 }
-.backspace {
+#backspace {
   background-color: #ff77a4;
   width: 240px;
 }
-.equals:active {
+#equals:active {
   background-color: #fa0e5c;
 }
-.clear:active {
+#clear:active {
   background-color: #fa0e5c;
 }
-.backspace:active {
+#backspace:active {
   background-color: #fa0e5c;
 }

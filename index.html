@@ -11,8 +11,8 @@
       <input type="text" id="display" disabled onkeypress="return event.charCode >= 48 && event.charCode <= 57" />
 
       <div class="keys">
-        <button class="clear" value="null" onclick="clearDisplay(); enableDecimalButton()">C</button>
-        <button class="backspace" onclick="backSpace()">←</button>
+        <button id="clear" value="null" >C</button>
+        <button id="backspace">←</button>
         <br />
         <button class="number" value="7">7</button>
         <button class="number" value="8">8</button>
@@ -30,8 +30,8 @@
         <button class="operand" value="*">*</button>
         <br />
         <button class="number" value="0">0</button>
-        <button class="decimal" value="." onclick="appendToDisplay('.'); this.disabled = true;">.</button>
-        <button id="equal" class="operand" value="=" onclick="calculate()">=</button>
+        <button id="decimal" value=".">.</button>
+        <button id="equals"  value="=" >=</button>
         <button class="operand" value="/">/</button>
       </div>
     </div>

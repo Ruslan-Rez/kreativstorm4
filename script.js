@@ -1,9 +1,10 @@
 const display = document.querySelector("#display");
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operand");
-const clear = document.querySelector(".clear");
-const equal = document.querySelector("#equal");
-const decimal = document.querySelector(".decimal");
+const clear = document.querySelector("#clear");
+const equal = document.querySelector("#equals");
+const decimal = document.querySelector("#decimal");
+const backspace = document.querySelector("#backspace");
 
 let displayValue = "";
 let number1 = null;
@@ -17,6 +18,20 @@ numbers.forEach((numberInput) => {
     appendToDisplay(e.target.value);
   });
 });
+equal.addEventListener("click",(e)=>{
+  calculate();
+});
+clear.addEventListener("click",(e)=>{
+  clearDisplay();
+  enableDecimalButton();
+});
+decimal.addEventListener("click",(e)=>{
+  appendToDisplay('.');
+  this.disabled = true;
+});
+backspace.addEventListener("click",(e)=>{
+  backSpace();
+})
 
 window.onkeydown = function (e) {
   console.log(e.key);
