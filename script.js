@@ -43,8 +43,8 @@ function calculate() {
   if (number1 !== null && operator !== null) {
     number2 = parseFloat(displayValue);
     const result = operate(number1, number2, operator);
-    display.value = parseFloat(result.toFixed(5));
-    number1 = parseFloat(result.toFixed(5));
+    display.value = result;
+    number1 = result;
     number2 = null;
     operator = null;
     displayValue = "";
